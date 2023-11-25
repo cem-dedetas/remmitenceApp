@@ -62,22 +62,22 @@ npx expo run:android
 ## Screenshots
 
 ### Home
-![Home Dark 1](screenshots/home_dark.png) | ![Home Light 1](Screenshots/home.png)
+![Home Dark 1](screenshots/home_dark.png) | ![Home Light 1](screenshots/home.png)
 --- | ---
 ### Auth
-![Auth Dark 1](screenshots/auth_dark.png) | ![Auth Light 1](Screenshots/auth.png)
+![Auth Dark 1](screenshots/auth_dark.png) | ![Auth Light 1](screenshots/auth.png)
 --- | ---
 ### Profile
-![Profile Dark 1](screenshots/profile_dark.png) | ![Profile Light 1](Screenshots/profile.png)
+![Profile Dark 1](screenshots/profile_dark.png) | ![Profile Light 1](screenshots/profile.png)
 --- | ---
 ### Transfers
-![Profile Dark 1](screenshots/transfers_dark.png) | ![Profile Light 1](Screenshots/transfers.png)
+![Profile Dark 1](screenshots/transfers_dark.png) | ![Profile Light 1](screenshots/transfers.png)
 --- | ---
-![Profile Dark 1](screenshots/loading_dark.png) | ![Profile Light 1](Screenshots/loading.png)
-![Profile Dark 1](screenshots/search_dark.png) | ![Profile Light 1](Screenshots/search.png)
-![Profile Dark 1](screenshots/not_found_fark.png) | ![Profile Light 1](Screenshots/not_found.png)
+![Profile Dark 1](screenshots/loading_dark.png) | ![Profile Light 1](screenshots/loading.png)
+![Profile Dark 1](screenshots/search_dark.png) | ![Profile Light 1](screenshots/search.png)
+![Profile Dark 1](screenshots/not_found_fark.png) | ![Profile Light 1](screenshots/not_found.png)
 
 ### Detail View
-![Detail Dark 1](screenshots/transfer_dark.png) | ![Detail Light 1](Screenshots/transfer.png)
+![Detail Dark 1](screenshots/transfer_dark.png) | ![Detail Light 1](screenshots/transfer.png)
 --- | ---
 
