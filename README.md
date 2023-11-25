@@ -11,11 +11,11 @@
 5. [Usage](#usage)
 6. [Screenshots](#screenshots)
     - [Home](#home)
+    - [Auth](#auth)
     - [Profile](#profile)
-    - [Create Job](#create-job)
-    - [Job Details](#job-details)
-    - [Job List](#job-list)
-    - [Chat](#chat)
+    - [Transfers](#transfers)
+    - [Detail View](#detail-view)
+    
 
 ## Introduction
 
