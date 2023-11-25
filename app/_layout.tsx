@@ -1,9 +1,13 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
-import { SplashScreen, Stack } from 'expo-router';
+import { Slot, SplashScreen, Stack, router } from 'expo-router';
 import { useEffect } from 'react';
-import { useColorScheme } from 'react-native';
+import { Button, Pressable, useColorScheme } from 'react-native';
+import AuthProvider from '../context/AuthProvider';
+import { useAuth } from '../context/AuthContext';
+import { FA5Style } from '@expo/vector-icons/build/FontAwesome5';
+import { Text } from 'react-native';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -42,15 +46,59 @@ export default function RootLayout() {
   return <RootLayoutNav />;
 }
 
+const InitialLayout = () => {
+  const { authState, didLoad } = useAuth();
+
+  useEffect(() => {
+    if (!didLoad) return;
+    if (authState?.user) {
+      return router.replace('/(tabs)/')
+    }
+    return router.replace('/login') 
+    
+    
+    
+  },[didLoad])
+
+  return <Stack>
+  <Stack.Screen name="login" options={{headerShown:false}}/>
+  <Stack.Screen name="(tabs)" options={{headerShown:false}}/>
+  <Stack.Screen name="profile" options={{title:"Profile"}}/>
+  <Stack.Screen name="transferDetails/[id]" options={{title:"Transfer Details", presentation:'modal', headerLeft(props) {
+    return <Pressable onPress={() => router.back()} style={{flexDirection:'row'}}>
+      <FontAwesome name='chevron-left' size={16} color='#007BFF' />
+      <Text style={{marginLeft:5, color:'#007BFF'}}>Back</Text>
+      
+      </Pressable>
+  },}}/>
+</Stack>
+}
+
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
 
+  const { authState, onSignOut, promptAsync } = useAuth();
+
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-      </Stack>
-    </ThemeProvider>
+    <AuthProvider>
+      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+      <InitialLayout></InitialLayout>
+        {/* <Stack>
+          
+          <Stack.Screen name="index" options={{headerShown:true}}/>
+          <Stack.Screen name="home" options={{headerShown:true}}/>
+          <Stack.Screen name="login" options={{headerShown:true}}/>
+          <Stack.Screen name="(tabs)" options={{headerShown:true}}/>
+          <Stack.Screen name="profile" options={{title:"Profile"}}/>
+          <Stack.Screen name="transferDetails/[id]" options={{title:"Transfer Details", presentation:'modal', headerLeft(props) {
+            return <Pressable onPress={() => router.back()} style={{flexDirection:'row'}}>
+              <FontAwesome name='chevron-left' size={16} color='#007BFF' />
+              <Text style={{marginLeft:5, color:'#007BFF'}}>Back</Text>
+              
+              </Pressable>
+          },}}/>
+        </Stack> */}
+      </ThemeProvider>
+    </AuthProvider>
   );
 }
